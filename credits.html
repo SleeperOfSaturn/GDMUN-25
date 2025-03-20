@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDMUN'25 - Credits</title>
+    <link rel="icon" type="png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .credits-list a {
+            color: #ecc55a;
+            text-decoration: none;
+        }
+        .credits-list a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .title {
+            font-size: 4rem;
+            color: #ecc55a;
+            margin-bottom: 1rem;
+        }
+        .credits-list {
+            font-size: 1.2rem;
+            color: #a8a8a8;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        body {
+            position: relative;
+            overflow: hidden;
+        }
+        .logo-overlay {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            opacity: 0.198888889;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" alt="GDMUN'25" class="logo">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav" id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="team.html">Team</a>
+            <a href="committees.html">Committees</a>
+            <a href="registration.html">Registration</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <img src="logo_credits.png" alt="GDMUN'25 Logo" class="logo-overlay">
+    <div class="content">
+        <h1 class="title">Credits</h1>
+        <p class="credits-list">Website Development: <a href="https://github.com/SleeperOfSaturn/">Sannidhya Sharma</a>, USG IT</p>
+        <br>
+        <p class="credits-list">Website Designing: <a href="https://instagram.com/adityasinghthakur_0">Aditya Singh Thakur</a>, USG Delegate Affairs</p>
+        <br>
+        <p class="credits-list">Graphics: <a href="https://www.instagram.com/vashisth.aep/">Vashisth Lahotra</a>, Head of IT & Graphics & <a href="https://www.instagram.com/idk._.gt_/"> Ganik Thakur</a>, USG IT</p>
+        <br>
+        <p class="credits-list">Content & Coordination: <a href="https://www.instagram.com/gdmun.25/">GDMUN'25 Secretariat</a></p>
+        <br>
+        <p class="credits-list">Hosted by: <a href="http://gdgoenkajammu.org/">GD Goenka Public School Jammu</a></p>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            navMenu.classList.toggle("show");
+        }
+        function closeMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            navMenu.classList.remove("show");
+        }
+        document.addEventListener("click", function (event) {
+            const navMenu = document.getElementById("nav-menu");
+            const menuIcon = document.querySelector(".menu-icon");
+            if (!navMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                navMenu.classList.remove("show");
+            }
+        });
+    </script>
+</body>
+</html>

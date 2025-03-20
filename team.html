@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDMUN'25 - Team</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .team-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .team-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .team-image {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .team-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ecc55a;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2rem;
+            display: none;
+        }
+        .team-text {
+            max-width: 500px;
+            text-align: left;
+        }
+        .position {
+            font-size: 1.5rem;
+            color: #ecc55a;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .team-section {
+                flex-direction: column !important;
+                text-align: center;
+            }
+            .team-text {
+                text-align: center;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            navMenu.classList.toggle("show");
+        }
+        function closeMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            navMenu.classList.remove("show");
+        }
+        function toggleName(element) {
+            const name = element.querySelector('.team-name');
+            name.style.display = name.style.display === 'none' || name.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" alt="GDMUN'25" class="logo">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav" id="nav-menu">
+            <a href="index.html" onclick="closeMenu()">Home</a>
+            <a href="team.html" onclick="closeMenu()">Team</a>
+            <a href="committees.html" onclick="closeMenu()">Committees</a>
+            <a href="registration.html" onclick="closeMenu()">Registration</a>
+            <a href="contact.html" onclick="closeMenu()">Contact Us</a>
+        </div>
+    </div>
+    <script>
+        const teamMembers = [
+            "Secretary-General", "Director General", "Chief Advisor", "Chief of Staff", "Head of Logistics", 
+            "Head of IT & Graphics", "USG IT", "USG IT", "USG Delegate Affairs", "USG Delegate Affairs", 
+            "USG Committee Affairs", "USG Committee Affairs", "USG Public Outreach", "Chief Editor"
+        ];
+        document.write(teamMembers.map((position, index) => `
+            <div class="team-section" style="flex-direction: ${index % 2 === 0 ? 'row' : 'row-reverse'}">
+                <div class="team-image" onclick="toggleName(this)">
+                    <img src="${position.toLowerCase().replace(/ /g, '-')}.jpg" alt="${position}">
+                    <div class="team-name">${position}</div>
+                </div>
+                <div class="team-text">
+                    <div class="position">${position}</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+                </div>
+            </div>
+        `).join(''));
+    </script>
+</body>
+</html>

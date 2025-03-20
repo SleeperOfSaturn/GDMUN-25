@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDMUN'25 - committee Us</title>
+    <link rel="icon" type="png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Launch Screen */
+        .launch-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 1rem;
+        }
+        .launch-screen-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('hall.jpg') center/cover no-repeat;
+            filter: blur(8px);
+            z-index: -1;
+        }
+        .title {
+            font-size: 4rem;
+            color: #ecc55a;
+            text-shadow: 1.5px 0 20px #101010;
+        }
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Wrapper */
+        #wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Title Styling */
+        .about-title {
+            font-size: 2rem;
+            color: #ecc55a;
+            text-shadow: 1px 0 10px #101010;
+        }
+
+        /* Normal text styling */
+        .tagline {
+            max-width: 90%;
+            font-size: 1rem;
+            color: #a8a8a8;
+        }
+        
+        /* committee Section */
+        .committee-section {
+            text-align: center;
+        }
+        .committee-title {
+            font-size: 2rem;
+            color: #ecc55a;
+        }
+        .committee-info {
+            font-size: 1rem;
+            color: #a8a8a8;
+        }
+        iframe{
+            width: 100%;
+            height: 92vh;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" alt="GDMUN'25" class="logo">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav" id="nav-menu">
+            <a href="index.html" onclick="closeMenu()">Home</a>
+            <a href="#wrapper" onclick="closeMenu()">About</a>
+            <a href="team.html" onclick="closeMenu()">Team</a>
+            <a href="committees.html" onclick="closeMenu()">Committees</a>
+            <a href="registration.html" onclick="closeMenu()">Registration</a>
+        </div>
+    </div>
+
+    <div class="committee-section">
+        <iframe src="committees_slider.html" style="border-width: 0px;"></iframe>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            navMenu.classList.toggle("show");
+        }
+        function closeMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            navMenu.classList.remove("show");
+        }
+        document.addEventListener("click", function (event) {
+            const navMenu = document.getElementById("nav-menu");
+            const menuIcon = document.querySelector(".menu-icon");
+            if (!navMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                navMenu.classList.remove("show");
+            }
+        });
+    </script>
+</body>
+</html>
