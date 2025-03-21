@@ -14,6 +14,9 @@
             padding: 0;
             box-sizing: border-box;
         }
+        body {
+            padding-top: 80px;
+        }
         .team-section {
             display: flex;
             align-items: center;
@@ -21,13 +24,10 @@
             gap: 2rem;
             margin: 2rem 0;
         }
-        .team-section:nth-child(even) {
-            flex-direction: row-reverse;
-        }
         .team-image {
             position: relative;
-            width: 200px;
-            height: 300px;
+            width: 180px;
+            height: 270px;
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
@@ -101,23 +101,34 @@
         </div>
     </div>
     <script>
-        const teamMembers = [
-            "Secretary-General", "Director General", "Chief Advisor", "Chief of Staff", "Head of Logistics", 
-            "Head of IT & Graphics", "USG IT", "USG IT", "USG Delegate Affairs", "USG Delegate Affairs", 
-            "USG Committee Affairs", "USG Committee Affairs", "USG Public Outreach", "Chief Editor"
-        ];
-        document.write(teamMembers.map((position, index) => `
-            <div class="team-section" style="flex-direction: ${index % 2 === 0 ? 'row' : 'row-reverse'}">
-                <div class="team-image" onclick="toggleName(this)">
-                    <img src="${position.toLowerCase().replace(/ /g, '-')}.jpg" alt="${position}">
-                    <div class="team-name">${position}</div>
+        const teamMembers = {
+            "Secretary-General": ["Sudaksh Raina"],
+            "Director General": ["Tavish Jandyal"],
+            "Chief Advisor": ["Ridhaan Kotwal"],
+            "Chief of Staff": ["Mustansar Latifi", "Ayaana Kotwal"],
+            "Head of Logistics": ["Sia Aggarwal", "Vinayak Lakhnotra"],
+            "Head of IT & Graphics": ["Vashisth Lakhnotra"],
+            "USG IT": ["Sannidhya Sharma", "Ganik Thakur"],
+            "USG Delegate Affairs": ["Aditya Singh Thakur", "Pratiyaksh Dhar"],
+            "USG Committee Affairs": ["Advay Sharma", "Atharav Sharma"],
+            "USG Public Outreach": ["Manasvi Thakur"],
+            "Chief Editor": ["Mannat Chouhan"]
+        };
+        let count = 0;
+        document.write(Object.entries(teamMembers).map(([position, names]) => 
+            names.map(name => `
+                <div class="team-section" style="flex-direction: ${count++ % 2 === 0 ? 'row' : 'row-reverse'}">
+                    <div class="team-image" onclick="toggleName(this)">
+                        <img src="${name.toLowerCase().replace(/ /g, '-')}.jpg" alt="${name}">
+                        <div class="team-name">${name}</div>
+                    </div>
+                    <div class="team-text">
+                        <div class="position">${position}</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+                    </div>
                 </div>
-                <div class="team-text">
-                    <div class="position">${position}</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-                </div>
-            </div>
-        `).join(''));
+            `).join('')
+        ).join(''));
     </script>
 </body>
 </html>
